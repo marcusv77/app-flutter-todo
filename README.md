@@ -1,6 +1,6 @@
 # To Do list
 
-Application developed in flutter with the aid of the course "Creating Android and iOS Apps with Flutter". The project in question is a small application to perform financial calculations aiming at currency conversion. The app consumes real data from the API so that the values are appropriate to the current reality.
+Application developed in flutter with the aid of the course "Creating Android and iOS Apps with Flutter". The project in question is a small application to keep our to do's inside a list.
 
 ## Getting Started
 
