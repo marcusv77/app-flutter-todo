@@ -1,6 +1,6 @@
-# flutterapp
+# To Do list
 
-A new Flutter application.
+Application developed in flutter with the aid of the course "Creating Android and iOS Apps with Flutter". The project in question is a small application to keep our to do's inside a list.
 
 ## Getting Started
 
