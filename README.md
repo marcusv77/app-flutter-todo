@@ -2,6 +2,10 @@
 
 Application developed in flutter with the aid of the course "Creating Android and iOS Apps with Flutter". The project in question is a small application to keep our to do's inside a list.
 
+<p align="center"> 
+<img alt="Print" src="https://github.com/marcusv77/App-Flutter-To-Do/blob/master/print/todo.png">
+</p>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
