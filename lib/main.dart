@@ -48,6 +48,17 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void removeCheck(){
+    setState(() {
+      for(var i=0; i < _toDoList.length; i++){
+        if (_toDoList[i]["ok"] == true ){
+          _toDoList.removeAt(i);
+        }
+      }
+      _saveData();
+    });
+  }
+
   Future<Null> _refresh() async {
     await Future.delayed(Duration(seconds: 1));
 
@@ -71,9 +82,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Lista de tarefas"),
-          backgroundColor: Colors.blue,
-          centerTitle: true),
+        title: Text("Fly After"),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurpleAccent,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.delete_outline, color: Colors.white),
+            onPressed: removeCheck,
+          )
+        ],
+      ),
       body: Column(
         children: <Widget>[
           Container(
@@ -84,14 +102,14 @@ class _HomeState extends State<Home> {
                   child: TextField(
                     controller: _toDoController,
                     decoration: InputDecoration(
-                        labelText: "Nova tarefa",
-                        labelStyle: TextStyle(color: Colors.blueAccent)),
+                        labelText: "New To Do",
+                        labelStyle: TextStyle(color: Colors.deepPurpleAccent)),
                   ),
                 ),
-                RaisedButton(
-                  color: Colors.blueAccent,
+                OutlineButton(
+                  color: Colors.deepPurpleAccent,
                   child: Text("Add"),
-                  textColor: Colors.white,
+                  textColor: Colors.deepPurpleAccent,
                   onPressed: _addToDo,
                 )
               ],
@@ -116,7 +134,7 @@ class _HomeState extends State<Home> {
     return Dismissible(
       key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
       background: Container(
-        color: Colors.red,
+        color: Colors.deepPurpleAccent,
         child: Align(
           alignment: Alignment(-0.9, 0.0),
           child: Icon(Icons.delete, color: Colors.white),
@@ -127,7 +145,7 @@ class _HomeState extends State<Home> {
         title: Text(_toDoList[index]["title"]),
         value: _toDoList[index]["ok"],
         secondary: CircleAvatar(
-          child: Icon(_toDoList[index]["ok"] ? Icons.check : Icons.error),
+          child: Icon(_toDoList[index]["ok"] ? Icons.check_circle : Icons.radio_button_unchecked, color: Colors.white), backgroundColor: Colors.deepPurpleAccent,
         ),
         onChanged: (check) {
           setState(() {
